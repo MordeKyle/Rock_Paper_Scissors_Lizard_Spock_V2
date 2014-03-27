@@ -1,0 +1,7 @@
+﻿***CHANGE LOG***
+
+Version: 1.0 Adventurous Robin
+03/27/2014 @ 01:28
+•added images to form and game them names corresponding to image
+•created generateRandom function (int)
+•started computerChoice function (string)
