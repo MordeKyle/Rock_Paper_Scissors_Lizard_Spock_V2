@@ -1,5 +1,13 @@
 ﻿***CHANGE LOG***
 
+Version: 1.01 Adventurous Robin
+03/31/2014 @ 01:46
+•created getResults function (string)
+•finished computerChoice funtrion (string)
+•created printResults function (void)
+•created getUserInput function (string) and removed it (unessesary)
+•added all onClicks
+
 Version: 1.0 Adventurous Robin
 03/27/2014 @ 01:28
 •added images to form and game them names corresponding to image

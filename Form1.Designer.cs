@@ -55,6 +55,7 @@
             this.paperPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.paperPB.TabIndex = 0;
             this.paperPB.TabStop = false;
+            this.paperPB.Click += new System.EventHandler(this.paperPB_Click);
             // 
             // rockPB
             // 
@@ -76,6 +77,7 @@
             this.scissorsPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.scissorsPB.TabIndex = 2;
             this.scissorsPB.TabStop = false;
+            this.scissorsPB.Click += new System.EventHandler(this.scissorsPB_Click);
             // 
             // lizardPB
             // 
@@ -86,6 +88,7 @@
             this.lizardPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.lizardPB.TabIndex = 3;
             this.lizardPB.TabStop = false;
+            this.lizardPB.Click += new System.EventHandler(this.lizardPB_Click);
             // 
             // spockPB
             // 
@@ -96,15 +99,16 @@
             this.spockPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.spockPB.TabIndex = 4;
             this.spockPB.TabStop = false;
+            this.spockPB.Click += new System.EventHandler(this.spockPB_Click);
             // 
             // chooseLabel
             // 
             this.chooseLabel.AutoSize = true;
-            this.chooseLabel.Location = new System.Drawing.Point(170, 152);
+            this.chooseLabel.Location = new System.Drawing.Point(174, 152);
             this.chooseLabel.Name = "chooseLabel";
-            this.chooseLabel.Size = new System.Drawing.Size(66, 13);
+            this.chooseLabel.Size = new System.Drawing.Size(53, 13);
             this.chooseLabel.TabIndex = 5;
-            this.chooseLabel.Text = "Choose One";
+            this.chooseLabel.Text = "Click One";
             // 
             // label1
             // 
