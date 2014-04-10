@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 /*Program: Rock Paper Scissors Lizard Spock V2
   Author: Kyle McBride A02609917
@@ -27,6 +28,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
         private const string win =      "You Win!";
         private const string draw =     "Draw";
         private const string lose =     "You lose";
+        private const string resultFile = "../../RPSresults.txt";
 
         public Form1()
         {
@@ -156,6 +158,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
             //printing the computer's choice and the results of the game
             computerChoiceLabel.Text = computerChoice;
             resultsLabel.Text = results;
+            recordResults(results);
         }
 
         private void rockPB_Click(object sender, EventArgs e) //user chose rock
@@ -211,6 +214,76 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
             string results = getResults(spock, computerChoice);
             //print the computer's choice and the results of the game passing in the preceding variables.
             printResults(computerChoice, results);
+        }
+
+        private void resultsButton_Click(object sender, EventArgs e)
+        {
+            //declare variables to hold writable values.
+            int winResults;
+            int loseResults;
+            int drawResults;
+
+            //passing win, lose, draw into readResults funtion
+            winResults = readResults(win);
+            loseResults = readResults(lose);
+            drawResults = readResults(draw);
+
+            //displaying results
+            MessageBox.Show("Wins: " + winResults + "\n" + "Loses: " + loseResults + "\n" + "Draws: " + drawResults);
+        }
+
+        private int readResults(string result) //reading number of wins, loses, and draws from RPSresults.txt
+        {
+            //declaring output
+            int resultTotal = 0;
+            try
+            {
+                //declaring streamreader
+                StreamReader inputFile;
+                //streamreading the results file
+                inputFile = File.OpenText(resultFile);
+
+                string readLine;
+
+                while (inputFile.EndOfStream == false) //loop to count how many times win, lose, or draw is in the file
+                {
+                    readLine = inputFile.ReadLine();
+
+                    if (readLine == result) //checks to se if each line is equal to win, lose, or draw
+                    {
+                        ++resultTotal; //if so, add 1 to the counter
+                    }
+                }
+                inputFile.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return resultTotal; //output the counter, as it is equal to how many wins, loses, or draws
+        }
+
+        private void recordResults(string result) //recording the results to the results file
+        {
+            try
+            {
+                StreamWriter outputFile;
+
+                outputFile = File.AppendText(resultFile); //stream writing the result file, appending.
+                outputFile.WriteLine(result); //write line with result from play
+
+                outputFile.Close(); //closing the results file
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

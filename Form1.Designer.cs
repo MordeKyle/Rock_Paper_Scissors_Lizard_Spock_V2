@@ -39,6 +39,8 @@
             this.computerChoiceLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.resultsLabel = new System.Windows.Forms.Label();
+            this.resultsButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.paperPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rockPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scissorsPB)).BeginInit();
@@ -148,11 +150,33 @@
             this.resultsLabel.TabIndex = 9;
             this.resultsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // resultsButton
+            // 
+            this.resultsButton.Location = new System.Drawing.Point(115, 343);
+            this.resultsButton.Name = "resultsButton";
+            this.resultsButton.Size = new System.Drawing.Size(75, 23);
+            this.resultsButton.TabIndex = 10;
+            this.resultsButton.Text = "Results";
+            this.resultsButton.UseVisualStyleBackColor = true;
+            this.resultsButton.Click += new System.EventHandler(this.resultsButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(210, 343);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.TabIndex = 11;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 362);
+            this.ClientSize = new System.Drawing.Size(384, 378);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.resultsButton);
             this.Controls.Add(this.resultsLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.computerChoiceLabel);
@@ -188,6 +212,8 @@
         private System.Windows.Forms.Label computerChoiceLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label resultsLabel;
+        private System.Windows.Forms.Button resultsButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 
