@@ -28,6 +28,8 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
         private const string win =      "You Win!";
         private const string draw =     "Draw";
         private const string lose =     "You lose";
+        private const string play =     "Play";
+        private const string game =     "Game";
         private const string resultFile = "../../RPSresults.txt";
 
         public Form1()
@@ -158,7 +160,17 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
             //printing the computer's choice and the results of the game
             computerChoiceLabel.Text = computerChoice;
             resultsLabel.Text = results;
-            recordResults(results);
+            if (results == draw)
+            {
+                recordResults(results);
+                recordResults(play);
+            }
+            else
+            {
+                recordResults(results);
+                recordResults(play);
+                recordResults(game);
+            }
         }
 
         private void rockPB_Click(object sender, EventArgs e) //user chose rock
@@ -222,14 +234,22 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
             int winResults;
             int loseResults;
             int drawResults;
+            int gameResults;
+            int playResults;
+            decimal winAverage;
 
             //passing win, lose, draw into readResults funtion
             winResults = readResults(win);
             loseResults = readResults(lose);
             drawResults = readResults(draw);
+            gameResults = readResults(game);
+            playResults = readResults(play);
+            winAverage = decimal.Divide(winResults, gameResults); //get average of plays
+            winAverage *= 100; //put it into % format.
 
             //displaying results
-            MessageBox.Show("Wins: " + winResults + "\n" + "Loses: " + loseResults + "\n" + "Draws: " + drawResults);
+            MessageBox.Show("Plays: " + playResults + "\n" + "Completed Games: " + gameResults + "\n" + "Wins: "  
+                + winResults + "\n" + "Loses: " + loseResults + "\n" + "Draws: " + drawResults + "\n" + "Win Percentage: " + winAverage + "%");
         }
 
         private int readResults(string result) //reading number of wins, loses, and draws from RPSresults.txt
@@ -270,6 +290,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock_V2
                 StreamWriter outputFile;
 
                 outputFile = File.AppendText(resultFile); //stream writing the result file, appending.
+                
                 outputFile.WriteLine(result); //write line with result from play
 
                 outputFile.Close(); //closing the results file

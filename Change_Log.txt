@@ -1,4 +1,10 @@
 ﻿***CHANGE LOG***
+Version: 1.11 Printing Robin
+04/10/2014 @14:43
+•created if-else in printResults function to handle plays vs. draws.
+•added play and game handlers in readResults on click
+•added win average in readResults on click
+
 Version: 1.1 Printing Robin
 04/10/2014 @ 12:21
 •created RPSresults.txt
